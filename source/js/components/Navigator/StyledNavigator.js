@@ -5,8 +5,8 @@ export const Navigator = styled.div`
   z-index: 10;
   top: 0;
   left: 0;
-  width: calc(100% - 40px);
-  margin: 20px;
+  width: calc(100% - 100px);
+  margin: 30px 50px;
   display: flex;
   justify-content: space-between;
 `;

@@ -1,11 +1,51 @@
 import styled from "styled-components";
 
 export const TitlePage = styled.div`
-    background-image: url("${props => props.bg}");
-    background-position: center center;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+`;
+
+export const TitlePageBackground = styled.div`
+  position: absolute;
+  background-image: url("${props => props.bg}");
+  background-position: center center;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  transform: scale(1);
+  @keyframes scaleBackgrond {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.5);
+    }
+  }
+
+  @keyframes scaleBackgrondReverse {
+    0% {
+      transform: scale(1.5);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+   
+
+  ${({ activePage }) => {
+    switch (activePage) {
+      case 0:
+        return "animation: 2s ease-out 0s 1 scaleBackgrondReverse;";
+      case 1:
+        return "animation: 2s ease-out 0s 1 scaleBackgrond;";
+      default:
+        return "";
+    }
+  }}
+    
+
 `;
 
 export const TitlePageParallaxLayout = styled.div`
@@ -23,7 +63,7 @@ export const TitlePageIco = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
-  padding: 20px;
+  padding-top: 26px;
 `;
 
 export const TitlePageBody = styled.div`

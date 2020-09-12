@@ -4,7 +4,7 @@ export const PagesWrapper = styled.div`
   position: relative;
   width: 100vw;
   height: 100vh;
-  transition: transform 1s linear; /* ease */
+  transition: transform 2s linear; /* ease */
   transform: translateX(${props => -props.activePage * 100}%);
 `;
 

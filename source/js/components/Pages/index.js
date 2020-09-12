@@ -3,10 +3,20 @@ import * as Styled from "./StyledPages";
 
 import Navigator from "../Navigator";
 import TitlePage from "../TitlePage";
+import CupPage from "../CupPage";
+import NaturePage from "../NaturePage";
+import VideoPage from "../VideoPage";
 
 export default function Pages() {
-  const pages = [<TitlePage />, "Page 2", "Page 3", "Page 4"];
   const [activePage, setActivePage] = useState(0);
+  console.log(activePage === 1);
+
+  const pages = [
+    <TitlePage activePage={activePage} />,
+    <CupPage />,
+    <NaturePage />,
+    <VideoPage />
+  ];
   const isAnimation = useRef(false);
 
   function handleKeyPress(e) {
@@ -14,7 +24,7 @@ export default function Pages() {
   }
 
   useEffect(() => {
-    setTimeout(() => (isAnimation.current = false), 1050);
+    setTimeout(() => (isAnimation.current = false), 2050);
   }, [activePage]);
 
   function handleWheel(e) {
